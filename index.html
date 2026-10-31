@@ -131,6 +131,12 @@ body:before{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opa
 .intro p{font-size:15px}
 .hero.nopic{grid-template-areas:"tag" "title" "intro"}
 }
+
+/* ---- embeds ---- */
+.thumb.ig{background:#fff;aspect-ratio:9/17}
+.thumb.ig:after{display:none}
+.thumb.ig iframe{pointer-events:none}
+.thumb video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#000}
 </style>
 </head>
 <body>
@@ -187,72 +193,90 @@ body:before{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opa
    - Link khali ("") ho to card "Coming soon" dikhayega
    ratio: "v" = vertical (reels), "h" = horizontal (YouTube / long form)
 ================================== */
-const LINKS = { instagram: "", linkedin: "", showreel: "" };
+const LINKS = { instagram: "", linkedin: "", showreel: "showreel.mp4" };
+const IG = "https://www.instagram.com/";
+const DR = "https://drive.google.com/file/d/";
 
 const S = [
  { title:"Short Form Mastery", ratio:"v", items:[
-  {t:"A perfect loop exist", u:""},
-  {t:"Gujarat Polo Club", u:""},
-  {t:"Podcast launch announcement video (sound design and driving emotion)", u:""},
-  {t:"ASMR sound design", u:""},
-  {t:"Travel content: first edit of an influencer, highest views on profile", u:""}]},
+  {t:"A perfect loop exist", u:IG+"reel/DUk6djrilCu/"},
+  {t:"Gujarat Polo Club", u:IG+"reel/DTIDJWhk1vu/"},
+  {t:"Podcast launch announcement video (sound design and driving emotion)", u:IG+"reel/DEM3DCDs3Nm/"},
+  {t:"ASMR sound design", u:IG+"reel/DPJgGPyDEjo/"},
+  {t:"Travel content: first edit of an influencer, highest views on profile", u:IG+"reel/DZCrg8RzsDJ/"}]},
  { title:"Fashion", script:"Content", ratio:"v", items:[
-  {t:"Fashion reel 1", u:""},{t:"Fashion reel 2", u:""},{t:"Fashion reel 3", u:""},{t:"Fashion reel 4", u:""}]},
+  {u:IG+"p/DRuB9NMjBWr/"},{u:IG+"reel/DUIo4DwDMKS/"}]},
  { title:"Precise", script:"masking", ratio:"v", items:[
-  {t:"Masking reel 1", u:""},{t:"Masking reel 2", u:""}]},
+  {u:IG+"reel/DMfqtQhKJkH/"},{u:IG+"reel/DHqTPX0Knco/"}]},
  { title:"Promotional", script:"Brand Content", ratio:"v", items:[
-  {t:"Brand reel 1", u:""},{t:"Brand reel 2", u:""},{t:"Brand reel 3", u:""},{t:"Brand reel 4", u:""}]},
+  {u:IG+"reel/DITUJ-uTm0L/"},{u:IG+"reel/DM18n8BT7F1/"},{u:IG+"p/DIQy6OQTJxj/"},{u:IG+"p/DTcPWTqjE_J/"}]},
  { title:"International", script:"Work", ratio:"v", items:[
-  {t:"International client 1", u:""},{t:"International client 2", u:""},{t:"International client 3", u:""}]},
+  {u:IG+"reel/DIQKfDkJZUP/"},{u:IG+"p/DK_UOaPBjNE/"},{u:IG+"p/DKql-ecBNmv/"}]},
  { title:"Real Estate", script:"Seamless AI Blend", ratio:"v", items:[
-  {t:"Project 1", u:""},{t:"Project 2", u:""},{t:"Project 3", u:""},{t:"Project 4", u:""}]},
+  {u:IG+"p/DV_L5UcDFYj/"},{u:IG+"reel/DU0agNHDV5a/"},{u:IG+"p/DVOK_NyDaji/"}]},
  { title:"Practice", script:"Projects", ratio:"h", items:[
-  {t:"Practice project 1", u:""},{t:"Practice project 2", u:""},{t:"Practice project 3", u:""}]},
- { title:"Long Form Edits", ratio:"h", items:[
-  {t:"Forbes Feature, Garba & Mom Life: official teaser", u:""},
-  {t:"One piece of jewellery, generations of love", u:""}]},
- { title:"Podcast Edits", ratio:"h", items:[
-  {t:"From Mom to Mrs. India", u:""},
-  {t:"From Garba to Forbes: a mom’s journey of confidence", u:""},
-  {t:"Raising a fearless kid", u:""},
-  {t:"“You’re too fat for Garba”: how body shaming…", u:""}]},
+  {u:DR+"1jF9LigkpGDOOB5RJcTZdu7KDirxEYEh7/view"},
+  {u:DR+"1eA_PMwtbMXJecW6ZIuZ_YPQXYOxQeiMD/view"},
+  {u:"practice-3.mp4"}]},
+ { title:"Long Form Edits", script:"Podcasts & Trailers", ratio:"h", items:[
+  {u:"https://www.youtube.com/watch?v=7t1tGxCio08"},
+  {u:"https://www.youtube.com/watch?v=1Kj50wJR858"},
+  {u:"https://www.youtube.com/watch?v=MteluFSnZtg"},
+  {u:"https://www.youtube.com/watch?v=cQpa1rmc5EM"}]},
  { title:"Graphic", script:"Designs", ratio:"v", items:[
-  {t:"Design 1", u:"", img:""},{t:"Design 2", u:"", img:""},{t:"Design 3", u:"", img:""},{t:"Design 4", u:"", img:""}]},
+  {u:"", img:""}]},
  { title:"AI", script:"Short Film", ratio:"h", items:[
-  {t:"AI short film", u:""}]},
- { title:"Wedding", script:"Trailers & Teasers", ratio:"v", items:[
-  {t:"Wedding teaser 1", u:""},{t:"Wedding teaser 2", u:""},{t:"Wedding trailer 1", u:""}]}
+  {u:""}]},
+ { title:"Wedding", script:"Teasers", ratio:"h", items:[
+  {u:DR+"14AQXsi370dVy23QnpmVjKe6kbq8tRLDS/view"},
+  {u:DR+"1BhGrOj1evcw314_OHCvvObtKmrGHvgYz/view"}]},
+ { title:"Wedding", script:"Trailers", ratio:"h", items:[
+  {u:DR+"1iagPpJfOPzEBZ694ktOa-VzTjoV5TzqS/view"},
+  {u:DR+"1MC-4eaB7SUwxOiEyznXY8FLPVJyxyot7/view"},
+  {u:DR+"1j09b2CYmFhdHoEiqa4yydLksE3yySAk8/view"}]}
 ];
+/* Jis section me koi link/img nahi hota wo site pe dikhta hi nahi (Graphic, AI abhi hidden hain). */
 
 const yt = u => (u.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/) || [])[1];
+const dr = u => (u.match(/drive\.google\.com\/file\/d\/([\w-]+)/) || [])[1];
+const ig = u => { const m = u.match(/instagram\.com\/(p|reels?|tv)\/([\w-]+)/); return m ? {k: m[1] === "p" ? "p" : "reel", id: m[2]} : null; };
 const el = (tag, cls, html) => { const n = document.createElement(tag); if (cls) n.className = cls; if (html) n.innerHTML = html; return n; };
 const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 
 function card(it){
-  const id = yt(it.u || "");
-  let wrap;
-  if (id){
-    wrap = el("div","card");
+  const u = it.u || "", label = it.t || "Video";
+  const id = yt(u), did = dr(u), g = ig(u), isFile = /\.(mp4|webm|mov)$/i.test(u);
+  let wrap = el("div","card");
+  const play = (bg, src, allow) => {
     const b = el("button","thumb",'<span class="play"></span>');
-    b.setAttribute("aria-label","Play: " + it.t);
-    b.style.backgroundImage = "url(https://img.youtube.com/vi/" + id + "/hqdefault.jpg)";
-    b.onclick = () => { b.replaceWith(Object.assign(el("div","thumb"),{innerHTML:'<iframe src="https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen title="'+esc(it.t)+'"></iframe>'})); };
+    b.setAttribute("aria-label","Play: " + label);
+    b.style.backgroundImage = "url(" + bg + ")";
+    b.onclick = () => { const d = el("div","thumb"), f = el("iframe"); f.src = src; f.allow = allow; f.allowFullscreen = true; f.title = label; d.append(f); b.replaceWith(d); };
     wrap.append(b);
-  } else {
-    wrap = el(it.u ? "a" : "div","card");
-    if (it.u){ wrap.href = it.u; wrap.target = "_blank"; wrap.rel = "noopener"; }
-    const th = el("div","thumb");
-    if (it.img){ const i = el("img"); i.src = it.img; i.alt = it.t; i.loading = "lazy"; th.append(i); }
-    th.append(el("span","play"));
-    if (!it.u) th.append(el("span","soon","Coming soon"));
+  };
+  if (id) play("https://img.youtube.com/vi/" + id + "/hqdefault.jpg", "https://www.youtube.com/embed/" + id + "?autoplay=1&rel=0", "autoplay; encrypted-media; picture-in-picture");
+  else if (did) play("https://drive.google.com/thumbnail?id=" + did + "&sz=w800", "https://drive.google.com/file/d/" + did + "/preview", "autoplay; encrypted-media");
+  else if (isFile){ const d = el("div","thumb"), v = el("video"); v.controls = true; v.playsInline = true; v.preload = "metadata"; v.src = u; d.append(v); wrap.append(d); }
+  else {
+    wrap = el(u ? "a" : "div","card");
+    if (u){ wrap.href = u; wrap.target = "_blank"; wrap.rel = "noopener"; wrap.setAttribute("aria-label", label); }
+    const th = el("div","thumb" + (g && !it.img ? " ig" : ""));
+    if (it.img){ const i = el("img"); i.src = it.img; i.alt = label; i.loading = "lazy"; th.append(i); th.append(el("span","play")); }
+    else if (g){ const f = el("iframe"); f.src = IG + g.k + "/" + g.id + "/embed/"; f.loading = "lazy"; f.title = label; f.tabIndex = -1; f.setAttribute("scrolling","no"); th.append(f); }
+    else th.append(el("span","play"));
     wrap.append(th);
   }
-  wrap.append(el("p","cap",esc(it.t)));
+  if (it.t || id){
+    const c = el("p","cap",esc(it.t || "")); wrap.append(c);
+    if (!it.t) fetch("https://noembed.com/embed?url=" + encodeURIComponent("https://www.youtube.com/watch?v=" + id))
+      .then(r => r.json()).then(d => { c.textContent = d.title || ""; }).catch(() => {});
+  }
   return wrap;
 }
 
 const main = document.getElementById("work");
 S.forEach(s => {
+  if (!s.items.some(i => i.u || i.img)) return;
   const sec = el("section","sec");
   sec.id = (s.title + (s.script||"")).toLowerCase().replace(/[^a-z]+/g,"-");
   sec.dataset.nav = s.title + (s.script && s.script.length <= 10 ? " " + s.script : "");
@@ -274,8 +298,15 @@ document.querySelectorAll("#showreel, #work .sec").forEach(n => io.observe(n));
 
 if (LINKS.instagram) document.getElementById("ig").href = LINKS.instagram;
 if (LINKS.linkedin) document.getElementById("li").href = LINKS.linkedin;
-const rid = yt(LINKS.showreel);
-if (rid) document.getElementById("reel").innerHTML = '<iframe src="https://www.youtube.com/embed/'+rid+'" allowfullscreen title="Showreel"></iframe>';
+const sr = LINKS.showreel, rbox = document.getElementById("reel");
+if (sr){
+  const rid = yt(sr), did = dr(sr);
+  if (rid) rbox.innerHTML = '<iframe src="https://www.youtube.com/embed/' + rid + '" allowfullscreen title="Showreel"></iframe>';
+  else if (did) rbox.innerHTML = '<iframe src="https://drive.google.com/file/d/' + did + '/preview" allow="autoplay" allowfullscreen title="Showreel"></iframe>';
+  else { const v = el("video"); v.controls = true; v.playsInline = true; v.preload = "metadata"; v.src = sr;
+    v.style.cssText = "width:100%;height:100%;object-fit:contain;background:#000"; v.onerror = () => { rbox.textContent = "Showreel coming soon"; };
+    rbox.textContent = ""; rbox.append(v); }
+}
 </script>
 </body>
 </html>
